@@ -1,0 +1,2227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishnarpit Institute of Pharmacy | Excellence in Pharmaceutical Education</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --secondary: #2d5a87;
+            --accent: #e63946;
+            --gold: #d4af37;
+            --light: #f8f9fa;
+            --dark: #0f172a;
+            --gradient-1: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            --gradient-2: linear-gradient(135deg, #e63946 0%, #f77f00 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 5%;
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .logo-text h1 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(30, 58, 95, 0.85), rgba(30, 58, 95, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 8rem 5% 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: var(--accent);
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.15;
+            top: -200px;
+            right: -200px;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content h1 span {
+            color: var(--gold);
+            display: block;
+        }
+
+        .hero-content p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gold);
+            display: block;
+        }
+
+        .stat-label {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-2);
+            color: white;
+            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(230, 57, 70, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .hero-video {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            animation: fadeIn 1.5s ease;
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: transform 0.3s;
+        }
+
+        .hero-video:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #2d5a87 0%, #1e3a5f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+            transition: transform 0.3s;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.7); }
+            50% { box-shadow: 0 0 0 30px rgba(230, 57, 70, 0); }
+        }
+
+        /* Floating Elements */
+        .floating-badge {
+            position: absolute;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .badge-1 {
+            top: 20%;
+            left: -50px;
+            animation-delay: 0s;
+        }
+
+        .badge-2 {
+            bottom: 20%;
+            right: -30px;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* HOD Section */
+        .hod-section {
+            padding: 6rem 5%;
+            background: white;
+            position: relative;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #64748b;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hod-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 30px;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 4rem;
+            align-items: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hod-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-2);
+        }
+
+        .hod-image {
+            position: relative;
+        }
+
+        .hod-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .hod-badge {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .hod-info h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .hod-info .title {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .hod-info p {
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .hod-contact {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-1);
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item span {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .program-header {
+            padding: 2rem;
+            background: var(--gradient-1);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .program-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .program-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .program-header span {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .program-body {
+            padding: 2rem;
+        }
+
+        .program-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #475569;
+        }
+
+        .program-features li:last-child {
+            border-bottom: none;
+        }
+
+        .program-features i {
+            color: var(--accent);
+        }
+
+        .program-footer {
+            padding: 0 2rem 2rem;
+        }
+
+        .btn-outline {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Labs Section */
+        .labs {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .labs-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .labs-content h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .labs-content > p {
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .lab-features {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .lab-feature {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .lab-feature:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .lab-feature:hover h4,
+        .lab-feature:hover p {
+            color: white;
+        }
+
+        .lab-feature:hover .lab-icon {
+            background: white;
+            color: var(--primary);
+        }
+
+        .lab-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+
+        .lab-feature h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .lab-feature p {
+            color: #64748b;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .labs-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .lab-img {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .lab-img img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .lab-img:hover img {
+            transform: scale(1.1);
+        }
+
+        .lab-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(30,58,95,0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .lab-img:hover::after {
+            opacity: 1;
+        }
+
+        .lab-img span {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            color: white;
+            font-weight: 600;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s;
+        }
+
+        .lab-img:hover span {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Placement Section */
+        .placement {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .placement::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.03" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+        }
+
+        .placement-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .placement-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .placement-counter {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            margin-top: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .counter-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .placement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+
+        .placement-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .placement-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .company-logo {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .placement-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .placement-card .role {
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .placement-stats {
+            display: flex;
+            gap: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .p-stat {
+            text-align: center;
+        }
+
+        .p-stat strong {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .p-stat span {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Recruiters Marquee */
+        .recruiters {
+            padding: 3rem 0;
+            background: rgba(0,0,0,0.2);
+            margin-top: 4rem;
+            overflow: hidden;
+        }
+
+        .marquee {
+            display: flex;
+            gap: 4rem;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-item {
+            flex-shrink: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            opacity: 0.6;
+            white-space: nowrap;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Campus Section */
+        .campus {
+            padding: 6rem 5%;
+            background: #f8f9fa;
+        }
+
+        .campus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .campus-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .campus-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .campus-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .campus-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(30,58,95,0.9), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .campus-card:hover .campus-overlay {
+            opacity: 1;
+        }
+
+        .campus-overlay h4 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            transform: translateY(20px);
+            transition: transform 0.3s;
+        }
+
+        .campus-overlay p {
+            color: rgba(255,255,255,0.8);
+            transform: translateY(20px);
+            transition: transform 0.3s 0.1s;
+        }
+
+        .campus-card:hover .campus-overlay h4,
+        .campus-card:hover .campus-overlay p {
+            transform: translateY(0);
+        }
+
+        /* Admission Section */
+        .admission {
+            padding: 6rem 5%;
+            background: white;
+        }
+
+        .admission-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .admission-form {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 3rem;
+            border-radius: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .admission-info h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .admission-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .step {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-content p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* Location Section */
+        .location {
+            padding: 6rem 5%;
+            background: var(--dark);
+            color: white;
+        }
+
+        .location-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .location-info h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .location-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .location-item i {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .location-item h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        .location-item p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        .map-container {
+            background: #1e293b;
+            border-radius: 24px;
+            overflow: hidden;
+            height: 400px;
+            position: relative;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+
+        .map-placeholder i {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .map-btn {
+            margin-top: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .footer-brand p {
+            color: #94a3b8;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1e293b;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            color: #64748b;
+        }
+
+        .developer {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.25rem;
+            z-index: 10;
+        }
+
+        .video-container {
+            aspect-ratio: 16/9;
+            background: #000;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container,
+            .hod-card,
+            .labs-showcase,
+            .admission-container,
+            .location-container {
+                grid-template-columns: 1fr;
+            }
+
+            .campus-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hod-image {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .campus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .placement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-badge {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">KIP</div>
+                <div class="logo-text">
+                    <h1>Krishnarpit Institute</h1>
+                    <span>of Pharmacy</span>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#labs">Labs</a></li>
+                <li><a href="#placement">Placements</a></li>
+                <li><a href="#campus">Campus</a></li>
+                <li><a href="#admission">Admission</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Shaping Future <span>Pharmacy Leaders</span></h1>
+                <p>Welcome to Krishnarpit Institute of Pharmacy, Prayagraj - a premier institution dedicated to excellence in pharmaceutical education, research, and innovation. Approved by PCI & Affiliated to AKTU.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Years Excellence</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">234</span>
+                        <span class="stat-label">Placements</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Recruiters</span>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#admission" class="btn btn-primary">
+                        <i class="fas fa-graduation-cap"></i>
+                        Apply Now
+                    </a>
+                    <a href="#about" class="btn btn-secondary">
+                        <i class="fas fa-play-circle"></i>
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-video" onclick="openVideoModal()">
+                <div class="video-placeholder">
+                    <div class="play-button">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="floating-badge badge-1">
+                        <i class="fas fa-award" style="color: var(--accent);"></i>
+                        <div>
+                            <strong>NAAC Accredited</strong>
+                            <small style="color: #64748b;">Grade A Institution</small>
+                        </div>
+                    </div>
+                    <div class="floating-badge badge-2">
+                        <i class="fas fa-users" style="color: var(--accent);"></i>
+                        <div>
+                            <strong>2000+</strong>
+                            <small style="color: #64748b;">Alumni Network</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOD Section -->
+    <section class="hod-section" id="about">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <h2>Leadership Excellence</h2>
+                <p>Guided by visionary leadership committed to academic excellence and student success</p>
+            </div>
+
+            <div class="hod-card reveal">
+                <div class="hod-image">
+                    <img src="/mnt/kimi/upload/1000101333.jpg" alt="Dr. Parjanya Shukla - HOD">
+                    <div class="hod-badge">Head of Department</div>
+                </div>
+                <div class="hod-info">
+                    <h3>Dr. Parjanya Shukla</h3>
+                    <span class="title">Professor & Head of Department</span>
+                    <p>With extensive experience in pharmaceutical sciences, Dr. Shukla leads our department with vision and dedication. Under his guidance, the institute has achieved remarkable milestones in academics, research, and placements. His commitment to nurturing future pharmacists has resulted in consistent excellent results and industry-ready graduates.</p>
+                    
+                    <div class="hod-contact">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <small style="color: #64748b; display: block;">Call HOD</small>
+                                <span>76685 75695</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <small style="color: #64748b; display: block;">Email</small>
+                                <span>hod@krishnarpit.edu.in</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <div>
+                                <small style="color: #64748b; display: block;">Experience</small>
+                                <span>20+ Years</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <h2>Academic Programs</h2>
+                <p>Comprehensive pharmacy education programs designed to meet industry standards</p>
+            </div>
+
+            <div class="programs-grid">
+                <div class="program-card reveal">
+                    <div class="program-header">
+                        <div class="program-icon">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <h3>D. Pharm</h3>
+                        <span>Diploma in Pharmacy | 2 Years</span>
+                    </div>
+                    <div class="program-body">
+                        <ul class="program-features">
+                            <li><i class="fas fa-check-circle"></i> PCI Approved Curriculum</li>
+                            <li><i class="fas fa-check-circle"></i> Extensive Practical Training</li>
+                            <li><i class="fas fa-check-circle"></i> Hospital & Industry Visits</li>
+                            <li><i class="fas fa-check-circle"></i> 100% Placement Assistance</li>
+                        </ul>
+                    </div>
+                    <div class="program-footer">
+                        <button class="btn-outline">View Syllabus</button>
+                    </div>
+                </div>
+
+                <div class="program-card reveal">
+                    <div class="program-header" style="background: linear-gradient(135deg, #e63946 0%, #f77f00 100%);">
+                        <div class="program-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>B. Pharm</h3>
+                        <span>Bachelor of Pharmacy | 4 Years</span>
+                    </div>
+                    <div class="program-body">
+                        <ul class="program-features">
+                            <li><i class="fas fa-check-circle"></i> AKTU Affiliated</li>
+                            <li><i class="fas fa-check-circle"></i> Advanced Research Labs</li>
+                            <li><i class="fas fa-check-circle"></i> Industrial Training</li>
+                            <li><i class="fas fa-check-circle"></i> GPAT/NIPER Coaching</li>
+                        </ul>
+                    </div>
+                    <div class="program-footer">
+                        <button class="btn-outline">View Syllabus</button>
+                    </div>
+                </div>
+
+                <div class="program-card reveal">
+                    <div class="program-header" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+                        <div class="program-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3>M. Pharm</h3>
+                        <span>Master of Pharmacy | 2 Years</span>
+                    </div>
+                    <div class="program-body">
+                        <ul class="program-features">
+                            <li><i class="fas fa-check-circle"></i> Specializations Available</li>
+                            <li><i class="fas fa-check-circle"></i> Research Opportunities</li>
+                            <li><i class="fas fa-check-circle"></i> Published Faculty</li>
+                            <li><i class="fas fa-check-circle"></i> PhD Guidance</li>
+                        </ul>
+                    </div>
+                    <div class="program-footer">
+                        <button class="btn-outline">View Syllabus</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Labs Section -->
+    <section class="labs" id="labs">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <h2>State-of-the-Art Laboratories</h2>
+                <p>World-class facilities for practical learning and research</p>
+            </div>
+
+            <div class="labs-showcase">
+                <div class="labs-content reveal">
+                    <h3>Advanced Pharmaceutical Labs</h3>
+                    <p>Our institute boasts modern laboratories equipped with the latest instruments and technology. Students gain hands-on experience with industry-standard equipment, ensuring they are job-ready upon graduation.</p>
+                    
+                    <div class="lab-features">
+                        <div class="lab-feature">
+                            <div class="lab-icon">
+                                <i class="fas fa-vial"></i>
+                            </div>
+                            <div>
+                                <h4>Pharmaceutics Lab</h4>
+                                <p>Tablet compression, capsule filling, and formulation development equipment</p>
+                            </div>
+                        </div>
+                        <div class="lab-feature">
+                            <div class="lab-icon">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <div>
+                                <h4>Pharmaceutical Chemistry</h4>
+                                <p>Synthesis, analysis, and quality control of drug molecules</p>
+                            </div>
+                        </div>
+                        <div class="lab-feature">
+                            <div class="lab-icon">
+                                <i class="fas fa-dna"></i>
+                            </div>
+                            <div>
+                                <h4>Pharmacology Lab</h4>
+                                <p>Animal experimentation and bioassay facilities with ethical compliance</p>
+                            </div>
+                        </div>
+                        <div class="lab-feature">
+                            <div class="lab-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div>
+                                <h4>Pharmacognosy Lab</h4>
+                                <p>Herbal drug extraction, microscopy, and crude drug identification</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="labs-gallery reveal">
+                    <div class="lab-img">
+                        <img src="/mnt/kimi/upload/1000101861.jpg" alt="Lab Equipment">
+                        <span>Pharmaceutics Lab</span>
+                    </div>
+                    <div class="lab-img">
+                        <img src="/mnt/kimi/upload/1000101859.jpg" alt="Anatomy Lab">
+                        <span>Anatomy Museum</span>
+                    </div>
+                    <div class="lab-img">
+                        <img src="/mnt/kimi/upload/1000101858.jpg" alt="Equipment">
+                        <span>Research Equipment</span>
+                    </div>
+                    <div class="lab-img">
+                        <img src="/mnt/kimi/upload/1000101853.jpg" alt="Microscopes">
+                        <span>Microscopy Lab</span>
+                    </div>
+                    <div class="lab-img">
+                        <img src="/mnt/kimi/upload/1000101852.jpg" alt="Specimens">
+                        <span>Histology Lab</span>
+                    </div>
+                    <div class="lab-img">
+                        <img src="/mnt/kimi/upload/1000101854.jpg" alt="Chemistry Lab">
+                        <span>Chemistry Lab</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placement Section -->
+    <section class="placement" id="placement">
+        <div class="section-container">
+            <div class="placement-header reveal">
+                <h2>Excellent Placement Record</h2>
+                <p>Our students are placed in top pharmaceutical companies across India</p>
+                <div class="placement-counter">
+                    <span class="counter-number" id="placementCounter">234</span>
+                    <span>Students Placed in 2023-24</span>
+                </div>
+            </div>
+
+            <div class="placement-grid">
+                <div class="placement-card reveal">
+                    <div class="company-logo">TPL</div>
+                    <h4>Troika Pharmaceuticals Ltd</h4>
+                    <span class="role">Territory Sales Officer</span>
+                    <p>Leading pharmaceutical company offering excellent growth opportunities in sales and marketing.</p>
+                    <div class="placement-stats">
+                        <div class="p-stat">
+                            <strong>12</strong>
+                            <span>Selections</span>
+                        </div>
+                        <div class="p-stat">
+                            <strong>4.5L</strong>
+                            <span>Package</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="placement-card reveal">
+                    <div class="company-logo" style="background: #0066cc; color: white;">MPL</div>
+                    <h4>Macleods Pharmaceuticals</h4>
+                    <span class="role">Production Chemist / QCO</span>
+                    <p>Major pharma manufacturer with state-of-the-art production facilities in Sikkim.</p>
+                    <div class="placement-stats">
+                        <div class="p-stat">
+                            <strong>8</strong>
+                            <span>Selections</span>
+                        </div>
+                        <div class="p-stat">
+                            <strong>3.8L</strong>
+                            <span>Package</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="placement-card reveal">
+                    <div class="company-logo" style="background: #00a651; color: white;">INT</div>
+                    <h4>Intas Pharmaceuticals</h4>
+                    <span class="role">Territory Sales Officer</span>
+                    <p>Multinational pharmaceutical company with global presence and research opportunities.</p>
+                    <div class="placement-stats">
+                        <div class="p-stat">
+                            <strong>15</strong>
+                            <span>Selections</span>
+                        </div>
+                        <div class="p-stat">
+                            <strong>5.2L</strong>
+                            <span>Package</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="placement-card reveal">
+                    <div class="company-logo" style="background: #ed1c24; color: white;">TOR</div>
+                    <h4>Torrent Pharma</h4>
+                    <span class="role">Quality Control Officer</span>
+                    <p>Leading Indian pharma company known for quality products and employee welfare.</p>
+                    <div class="placement-stats">
+                        <div class="p-stat">
+                            <strong>6</strong>
+                            <span>Selections</span>
+                        </div>
+                        <div class="p-stat">
+                            <strong>4.2L</strong>
+                            <span>Package</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="placement-card reveal">
+                    <div class="company-logo" style="background: #ff6600; color: white;">MER</div>
+                    <h4>Merck India Limited</h4>
+                    <span class="role">Marketing Executive</span>
+                    <p>Global science and technology company with excellent career growth paths.</p>
+                    <div class="placement-stats">
+                        <div class="p-stat">
+                            <strong>10</strong>
+                            <span>Selections</span>
+                        </div>
+                        <div class="p-stat">
+                            <strong>4.8L</strong>
+                            <span>Package</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="placement-card reveal">
+                    <div class="company-logo" style="background: #6b2c91; color: white;">HET</div>
+                    <h4>Hetero Pharmaceuticals</h4>
+                    <span class="role">Production Chemist</span>
+                    <p>One of India's largest generic pharmaceutical companies with international operations.</p>
+                    <div class="placement-stats">
+                        <div class="p-stat">
+                            <strong>18</strong>
+                            <span>Selections</span>
+                        </div>
+                        <div class="p-stat">
+                            <strong>3.5L</strong>
+                            <span>Package</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recruiters">
+                <div class="marquee">
+                    <div class="marquee-item">TROIKA PHARMACEUTICALS</div>
+                    <div class="marquee-item">MACLEODS PHARMA</div>
+                    <div class="marquee-item">INTAS PHARMACEUTICALS</div>
+                    <div class="marquee-item">TORRENT PHARMA</div>
+                    <div class="marquee-item">MERCK INDIA</div>
+                    <div class="marquee-item">HETERO PHARMACEUTICALS</div>
+                    <div class="marquee-item">AKUMS PHARMACEUTICALS</div>
+                    <div class="marquee-item">GENTECH HEALTHCARE</div>
+                    <div class="marquee-item">QUANTUM LIFE PHARMA</div>
+                    <div class="marquee-item">ACUMANTIS PHARMA</div>
+                    <div class="marquee-item">MOUNTMED LIFE SCIENCES</div>
+                    <div class="marquee-item">VADSP PHARMACEUTICAL</div>
+                    <div class="marquee-item">CHARAK PHARMACEUTICAL</div>
+                    <div class="marquee-item">ANKUR PHARMACEUTICALS</div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="marquee-item">TROIKA PHARMACEUTICALS</div>
+                    <div class="marquee-item">MACLEODS PHARMA</div>
+                    <div class="marquee-item">INTAS PHARMACEUTICALS</div>
+                    <div class="marquee-item">TORRENT PHARMA</div>
+                    <div class="marquee-item">MERCK INDIA</div>
+                    <div class="marquee-item">HETERO PHARMACEUTICALS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Section -->
+    <section class="campus" id="campus">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <h2>Campus Life</h2>
+                <p>Experience world-class infrastructure and vibrant campus culture</p>
+            </div>
+
+            <div class="campus-grid">
+                <div class="campus-card reveal">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=800" alt="Main Building">
+                    <div class="campus-overlay">
+                        <h4>Academic Block</h4>
+                        <p>Modern classrooms with smart learning facilities</p>
+                    </div>
+                </div>
+                <div class="campus-card reveal">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800" alt="Library">
+                    <div class="campus-overlay">
+                        <h4>Central Library</h4>
+                        <p>50,000+ books and digital resources</p>
+                    </div>
+                </div>
+                <div class="campus-card reveal">
+                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800" alt="Sports">
+                    <div class="campus-overlay">
+                        <h4>Sports Complex</h4>
+                        <p>Indoor and outdoor sports facilities</p>
+                    </div>
+                </div>
+                <div class="campus-card reveal">
+                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=800" alt="Cafeteria">
+                    <div class="campus-overlay">
+                        <h4>Cafeteria</h4>
+                        <p>Hygenic food and refreshment center</p>
+                    </div>
+                </div>
+                <div class="campus-card reveal">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800" alt="Hostel">
+                    <div class="campus-overlay">
+                        <h4>Hostel Accommodation</h4>
+                        <p>Separate hostels for boys and girls</p>
+                    </div>
+                </div>
+                <div class="campus-card reveal">
+                    <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=800" alt="Transport">
+                    <div class="campus-overlay">
+                        <h4>Transportation</h4>
+                        <p>Bus facility from all major locations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Section -->
+    <section class="admission" id="admission">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <h2>Admission 2024-25</h2>
+                <p>Begin your journey towards a successful pharmacy career</p>
+            </div>
+
+            <div class="admission-container">
+                <div class="admission-info reveal">
+                    <h3>Admission Process</h3>
+                    <div class="admission-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Online Application</h4>
+                                <p>Fill out the application form with your academic details and preferred course.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Document Verification</h4>
+                                <p>Submit required documents: Mark sheets, ID proof, photographs, and certificates.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Entrance Exam/Counseling</h4>
+                                <p>Appear for entrance exam or counseling session as per course requirements.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Fee Payment & Enrollment</h4>
+                                <p>Complete fee payment and secure your admission at Krishnarpit Institute.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admission-form reveal">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--primary);">Enquiry Form</h3>
+                    <form id="admissionForm">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Course Interested</label>
+                            <select required>
+                                <option value="">Select Course</option>
+                                <option value="dpharm">D. Pharm</option>
+                                <option value="bpharm">B. Pharm</option>
+                                <option value="mpharm">M. Pharm</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="3" placeholder="Your query or message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Application
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location" id="contact">
+        <div class="section-container">
+            <div class="location-container">
+                <div class="location-info reveal">
+                    <h3>Visit Our Campus</h3>
+                    <p style="color: #94a3b8; margin-bottom: 2rem;">Located in the heart of Prayagraj, easily accessible from all parts of the city.</p>
+                    
+                    <div class="location-details">
+                        <div class="location-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>Krishnarpit Institute of Pharmacy<br>Sarai Inayat, Prayagraj - 211008<br>Uttar Pradesh, India</p>
+                            </div>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Contact HOD</h4>
+                                <p>Dr. Parjanya Shukla<br>+91 76685 75695</p>
+                            </div>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>info@krishnarpit.edu.in<br>admission@krishnarpit.edu.in</p>
+                            </div>
+                        </div>
+                        <div class="location-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Office Hours</h4>
+                                <p>Monday - Saturday<br>9:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://maps.app.goo.gl/4b7GtP6ctHbUK7QV7" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-directions"></i>
+                        Get Directions
+                    </a>
+                </div>
+
+                <div class="map-container reveal">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Google Maps</h3>
+                        <p style="color: #64748b;">Click below to view exact location</p>
+                        <a href="https://maps.app.goo.gl/4b7GtP6ctHbUK7QV7" target="_blank" class="btn btn-primary map-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="section-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>Krishnarpit Institute of Pharmacy</h3>
+                    <p>Empowering future pharmacy professionals with quality education, practical training, and ethical values since 2008. Approved by Pharmacy Council of India (PCI) and affiliated to Dr. A.P.J. Abdul Kalam Technical University (AKTU).</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#labs">Laboratories</a></li>
+                        <li><a href="#placement">Placements</a></li>
+                        <li><a href="#admission">Admissions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Syllabus</a></li>
+                        <li><a href="#">Academic Calendar</a></li>
+                        <li><a href="#">Examination</a></li>
+                        <li><a href="#">Results</a></li>
+                        <li><a href="#">Career</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Krishnarpit Institute of Pharmacy. All rights reserved.</p>
+                <p class="developer">Designed & Developed by 𝐂ᴏᴅᴇʀ~ 𝐊ʀɪsʜ</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeVideoModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="video-container">
+                <video controls style="width: 100%; height: 100%;" id="collegeVideo">
+                    <source src="/mnt/kimi/upload/1000101508.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Video Modal
+        function openVideoModal() {
+            document.getElementById('videoModal').classclassList.add('active');
+List.add('active');
+            document.getElementById('collegeVideo').play();
+        }
+
+        function closeVideoModal() {
+            document.getElementById('videoModal').classList.remove('active');
+            document.getElementById('collegeVideo').pause();
+        }
+
+        // Close modal on outside click
+        document.getElementById('videoModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('videoModal')) {
+                closeVideoModal();
+            }
+        });
+
+        // Counter animation
+        function animateCounter() {
+            const counter = document.getElementById('placementCounter');
+            const target = 234;
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    counter.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Trigger counter when in view
+        const placementSection = document.querySelector('.placement');
+        const placementObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter();
+                    placementObserver.unobserve(entry.target);
+                }
+            });
+        },            document.getElementById('collegeVideo').play();
+        }
+
+        function closeVideoModal() {
+            document.getElementById('videoModal').classList.remove('active');
+            document.getElementById('collegeVideo').pause();
+        }
+
+        // Close modal on outside click
+        document.getElementById('videoModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('videoModal')) {
+                closeVideoModal();
+            }
+        });
+
+        // Counter animation
+        function animateCounter() {
+            const counter = document.getElementById('placementCounter');
+            const target = 234;
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    counter.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Trigger counter when in view
+ document.getElementById('collegeVideo').play();
+        }
+
+        function closeVideoModal() {
+            document.getElementById('videoModal').classList.remove('active');
+            document.getElementById('collegeVideo').pause();
+        }
+
+        // Close modal on outside click
+        document.getElementById('videoModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('videoModal')) {
+                closeVideoModal();
+            }
+        });
+
+        // Counter animation
+        function animateCounter() {
+            const counter = document.getElementById('placementCounter');
+            const target = 234;
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    counter.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Trigger counter when in view
+        const placementSection = document.querySelector('.placement');
+        const placementObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter();
+                    placementObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        placementObserver.observe(placementSection);
+
+        // Form submission
+        document.getElementById('admissionForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your interest! Our admission team will contact you shortly.');
+            e.target.reset();
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', () => {
+            alert('Mobile menu - Please use desktop for full navigation');
+        });
+    </script>
+</body>
+</html>
